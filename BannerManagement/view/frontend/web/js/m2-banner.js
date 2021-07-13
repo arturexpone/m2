@@ -90,7 +90,7 @@ define(
             $.ajax({
                 url: URL + 'banner/banner?getBanner=true&viewedBanners=' + showedBanners.join(),
                 method: 'GET',
-                context: $('main .columns'),
+                context: $('.sections.nav-sections'),
                 dataType: 'JSON',
                 success: function (banners) {
                     let currentBanner = getBannerToDisplay(banners);

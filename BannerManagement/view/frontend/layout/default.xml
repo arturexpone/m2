@@ -2,7 +2,7 @@
     <head>
         <css src="M2task_BannerManagement::css/banner.css" rel="stylesheet" type="text/css"/>
     </head>
-    <referenceContainer name="content.bottom">
+    <referenceContainer name="after.body.start">
         <block class="M2task\BannerManagement\Block\Frontend\BannerTemplate" name="banner.frontend" template="M2task_BannerManagement::m2_banner.phtml"/>
     </referenceContainer>
 </page>
