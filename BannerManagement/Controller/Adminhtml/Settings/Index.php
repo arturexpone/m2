@@ -1,6 +1,8 @@
 <?php
 namespace M2task\BannerManagement\Controller\Adminhtml\Settings;
 
+use M2task\BannerManagement\Model\BannerFactory;
+use M2task\BannerManagement\Model\ResourceModel\Banner\Collection;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
@@ -18,6 +20,18 @@ class Index extends Action implements HttpGetActionInterface
      * @var PageFactory
      */
     protected $resultPageFactory;
+    /**
+     * @var BannerFactory
+     */
+    private $bannerFactory;
+    /**
+     * @var \M2task\BannerManagement\Model\ResourceModel\BannerResource
+     */
+    private $bannerResource;
+    /**
+     * @var Collection
+     */
+    private $collection;
 
     /**
      * Index constructor.
@@ -27,11 +41,17 @@ class Index extends Action implements HttpGetActionInterface
      */
     public function __construct(
         Context $context,
-        PageFactory $resultPageFactory
+        PageFactory $resultPageFactory,
+        BannerFactory $bannerFactory,
+        \M2task\BannerManagement\Model\ResourceModel\BannerResource $bannerResource,
+        Collection $collection
     ) {
         parent::__construct($context);
 
         $this->resultPageFactory = $resultPageFactory;
+        $this->bannerFactory = $bannerFactory;
+        $this->bannerResource = $bannerResource;
+        $this->collection = $collection;
     }
 
     /**
